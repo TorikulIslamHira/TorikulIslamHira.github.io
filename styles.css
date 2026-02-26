@@ -80,7 +80,7 @@ a {
 }
 
 .brand-name {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: -0.45px;
 }
@@ -268,6 +268,165 @@ a {
   line-height: 22.75px;
 }
 
+.resume-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.resume-block h2 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.resume-block p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.resume-card {
+  background: color-mix(in srgb, var(--bg) 88%, #3b82f6 12%);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.resume-card h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.resume-card .resume-meta {
+  margin-top: 8px;
+  color: var(--brand);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 700;
+}
+
+.resume-card p {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.resume-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.resume-contact {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.proof-strip {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.proof-card {
+  background: color-mix(in srgb, var(--bg) 86%, #3b82f6 14%);
+  border: 1px solid color-mix(in srgb, var(--line) 82%, #3b82f6 18%);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.proof-card h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.proof-card p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.logo-cloud {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.logo-cloud h3,
+.testimonials-mini h3 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.logo-cloud__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.logo-item {
+  background: color-mix(in srgb, var(--bg) 88%, #3b82f6 12%);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  line-height: 18px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.testimonials-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.testimonial-card {
+  background: color-mix(in srgb, var(--bg) 90%, #3b82f6 10%);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.testimonial-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text);
+}
+
+.testimonial-card strong {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 18px;
+}
+
 .cta {
   margin-top: 24px;
   background: color-mix(in srgb, var(--bg) 55%, #0f172a 45%);
@@ -436,7 +595,14 @@ a {
 
 @media (max-width: 900px) {
   .projects,
+  .resume-grid,
   .footer__top {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-strip,
+  .logo-cloud__grid,
+  .testimonial-grid {
     grid-template-columns: 1fr;
   }
 
@@ -479,6 +645,11 @@ a {
 }
 
 @media (max-width: 640px) {
+  .brand-name {
+    font-size: 14px;
+    letter-spacing: -0.2px;
+  }
+
   .topbar__actions {
     gap: 16px;
   }
@@ -488,6 +659,7 @@ a {
   }
 
   .cta__buttons,
+  .resume-contact,
   .footer__bottom {
     flex-direction: column;
     align-items: flex-start;
