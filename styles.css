@@ -626,11 +626,31 @@ a {
   .topbar {
     flex-wrap: wrap;
     gap: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   .topbar__actions {
     width: 100%;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .topbar__nav {
+    order: 1;
+    width: 100%;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .topbar__actions .icon-btn {
+    order: 2;
+  }
+
+  .topbar__actions .btn-hire {
+    order: 3;
+    margin-left: auto;
   }
 
   .btn-hire {
@@ -646,6 +666,12 @@ a {
   .intro h1 {
     font-size: 36px;
     line-height: 1.1;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 }
 
@@ -667,12 +693,75 @@ a {
     letter-spacing: -0.2px;
   }
 
+  .topbar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   .topbar__actions {
-    gap: 16px;
+    gap: 10px;
   }
 
   .topbar__nav {
-    gap: 16px;
+    gap: 12px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .btn-hire {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .main {
+    padding: 28px 16px 88px;
+  }
+
+  .intro h1 {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+  .intro p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .tag {
+    height: 36px;
+    padding: 0 14px;
+    font-size: 14px;
+  }
+
+  .project h3 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .project p,
+  .resume-card p,
+  .proof-card p,
+  .testimonial-card p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .cta {
+    padding: 28px 18px;
+    border-radius: 18px;
+  }
+
+  .cta h2 {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+  .btn,
+  .resume-contact .btn {
+    width: 100%;
   }
 
   .cta__buttons,
@@ -681,5 +770,9 @@ a {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+
+  .cta__buttons {
+    flex-wrap: wrap;
   }
 }
