@@ -3,163 +3,147 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hira Viya - Portfolio</title>
+    <title>Hira Viya - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="home.css" />
   </head>
   <body>
-    <header class="topbar">
+    <header class="topbar topbar--dark">
       <div class="topbar__brand">
         <span class="brand-icon">
-          <img src="https://www.figma.com/api/mcp/asset/84a9efd3-8333-4380-b4b1-c1416d9f0c45" alt="" />
+          <img src="https://www.figma.com/api/mcp/asset/34d9bc48-b74a-421f-bf0e-763bc912f999" alt="" />
         </span>
         <span class="brand-name">Hira Viya</span>
       </div>
 
       <div class="topbar__actions">
         <nav class="topbar__nav">
-          <a href="#" class="nav-link">Home</a>
-          <a href="#" class="nav-link nav-link--active">Works</a>
-          <a href="#" class="nav-link">About</a>
-          <a href="#" class="nav-link">Contact</a>
+          <a href="index.html" class="nav-link nav-link--active">Home</a>
+          <a href="works.html" class="nav-link">Works</a>
+          <a href="#story" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </nav>
-        <button class="icon-btn" aria-label="Toggle theme">
+        <button class="icon-btn theme-toggle" aria-label="Toggle theme">
           <img src="https://www.figma.com/api/mcp/asset/73673390-ac29-41b0-9117-0478b737ad18" alt="" />
         </button>
-        <div class="avatar-wrap" aria-hidden="true">
-          <img src="https://www.figma.com/api/mcp/asset/b4d3d3f0-cd0e-47df-af52-2d75c1767e7f" alt="Profile" />
-        </div>
+        <a class="btn-hire" href="mailto:hello@hiraviya.com">
+          Hire Me
+          <img src="https://www.figma.com/api/mcp/asset/42b3323a-7bdf-4a1b-8bdd-cc67f9ade2df" alt="" />
+        </a>
       </div>
     </header>
 
-    <main class="main">
-      <section class="intro">
-        <h1>Portfolio</h1>
-        <p>
-          A curated showcase of design systems, brand identities, and digital experiences I've crafted recently.
-        </p>
+    <main class="container home-main">
+      <section class="hero reveal">
+        <div class="hero-copy">
+          <span class="availability">Available for projects</span>
+          <h1>Shaping the <span>future</span> of digital products.</h1>
+          <p>
+            Creative Director &amp; Product Designer based in New York. I help brands build emotional connections through
+            functional minimalism.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="works.html">View Portfolio</a>
+            <a class="btn-outline" href="works.html">Resume</a>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <div class="hero-image-bg hero-image-bg--one"></div>
+          <div class="hero-image-bg hero-image-bg--two"></div>
+          <div class="hero-image">
+            <img src="https://www.figma.com/api/mcp/asset/f9c467cf-63bd-4a3d-ac7a-68d39fed45f2" alt="Professional portrait of Hira Viya" decoding="async" />
+          </div>
+        </div>
       </section>
 
-      <section class="filters" aria-label="Portfolio categories">
-        <button class="tag tag--active" data-filter="all">All Works</button>
-        <button class="tag" data-filter="uiux">UI/UX</button>
-        <button class="tag" data-filter="branding">Branding</button>
-        <button class="tag" data-filter="web">Web Design</button>
-        <button class="tag" data-filter="app">App Design</button>
+      <section id="story" class="story reveal">
+        <h2>My Story</h2>
+        <div class="story-content">
+          <p>
+            With over a decade of experience in the design industry, I specialize in crafting digital experiences that
+            bridge the gap between user needs and business goals. My journey started in fine arts, where I learned the
+            foundational principles of composition and color, before evolving into a passion for strategic product
+            design.
+          </p>
+          <p>
+            I believe in the power of grid-based aesthetics and functional minimalism. To me, design isn't just about
+            how it looks, but how it solves complex problems while maintaining a sense of elegance.
+          </p>
+          <p>
+            Currently, I lead creative directions for tech startups and established global brands. I focus on creating
+            design systems that are not only scalable but also resonate emotionally with the end user. When I'm not
+            designing, you'll find me exploring the galleries of Chelsea or mentoring the next generation of UI
+            designers.
+          </p>
+        </div>
       </section>
 
-      <section class="projects" aria-label="Projects">
-        <article class="project" data-category="uiux">
-          <div class="project__image-wrap">
-            <img src="https://www.figma.com/api/mcp/asset/769326eb-40a5-4d2a-a2a0-2ec89d626ef8" alt="Nebula Financial Platform preview" />
-          </div>
-          <div class="project__meta">
-            <span class="pill pill--primary">UI/UX</span>
-            <span class="pill">2024</span>
-          </div>
-          <h3>Nebula Financial Platform</h3>
-          <p>Redesigning the future of decentralized finance through intuitive interface design and complex data visualization.</p>
-        </article>
-
-        <article class="project" data-category="web">
-          <div class="project__image-wrap">
-            <img src="https://www.figma.com/api/mcp/asset/3f4487ac-d3e7-44a5-b4d1-d6d3049c620e" alt="Aura Architects preview" />
-          </div>
-          <div class="project__meta">
-            <span class="pill pill--primary">WEB DESIGN</span>
-            <span class="pill">2023</span>
-          </div>
-          <h3>Aura Architects</h3>
-          <p>A minimalist, immersive portfolio experience for an award-winning architecture studio in Stockholm.</p>
-        </article>
-
-        <article class="project" data-category="branding">
-          <div class="project__image-wrap">
-            <img src="https://www.figma.com/api/mcp/asset/efe2cee9-90e5-42e7-aad1-0f4b637f68c9" alt="Quantum Logic Rebrand preview" />
-          </div>
-          <div class="project__meta">
-            <span class="pill pill--primary">BRANDING</span>
-            <span class="pill">2024</span>
-          </div>
-          <h3>Quantum Logic Rebrand</h3>
-          <p>Developing a new visual language and strategic positioning for a cutting-edge tech consulting agency.</p>
-        </article>
-
-        <article class="project" data-category="app">
-          <div class="project__image-wrap">
-            <img src="https://www.figma.com/api/mcp/asset/eb216fbb-7de6-40f6-8227-d43389365423" alt="Vogue Vault preview" />
-          </div>
-          <div class="project__meta">
-            <span class="pill pill--primary">APP DESIGN</span>
-            <span class="pill">2023</span>
-          </div>
-          <h3>Vogue Vault</h3>
-          <p>Seamless shopping experience for a luxury fashion marketplace with high conversion focuses.</p>
-        </article>
+      <section class="skills reveal">
+        <div class="skills-head">
+          <h2>Skills &amp; <span>Expertise</span></h2>
+          <p>Constant learning and iteration are at the core of my process.</p>
+        </div>
+        <div class="skill-grid">
+          <article class="skill-card">
+            <span class="skill-icon"><img src="https://www.figma.com/api/mcp/asset/da68b630-0419-4bb7-b7ce-b6e25e2c8722" alt="" loading="lazy" decoding="async" /></span>
+            <h3>Web Development</h3>
+            <p>Creating intuitive interfaces and seamless user journeys across mobile and web platforms.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-icon"><img src="https://www.figma.com/api/mcp/asset/763dd421-30bf-4e4a-a35d-42cc7b1d5ddf" alt="" loading="lazy" decoding="async" /></span>
+            <h3>Ui Ux Devolopment</h3>
+            <p>Developing cohesive brand identities that stand out in crowded digital markets.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-icon"><img src="https://www.figma.com/api/mcp/asset/1960b113-186c-47c1-ab75-d35602738fa6" alt="" loading="lazy" decoding="async" /></span>
+            <h3>App Devolopment</h3>
+            <p>Aligning design decisions with business KPIs to drive measurable growth and engagement.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-icon"><img src="https://www.figma.com/api/mcp/asset/43c2c88f-8f8d-4593-b848-966681fb96a7" alt="" loading="lazy" decoding="async" /></span>
+            <h3>Branding</h3>
+            <p>Handcrafted digital assets that add personality and narrative to digital products.</p>
+          </article>
+        </div>
       </section>
 
-      <section class="cta">
-        <h2>Ready to start a project?</h2>
-        <p>
-          I'm currently accepting new freelance projects and collaborations for 2024. Let's create something remarkable
-          together.
-        </p>
-        <div class="cta__buttons">
-          <a class="btn btn--primary" href="#">
-            Get in Touch
-            <img src="https://www.figma.com/api/mcp/asset/07362a08-a77a-4272-ba4c-888c7529aa92" alt="" />
-          </a>
-          <a class="btn btn--ghost" href="#">View Services</a>
+      <section id="services" class="services reveal">
+        <div class="services-intro">
+          <h2>Services I Offer</h2>
+          <p>From initial concept to final polish, I provide end-to-end design solutions tailored to your unique needs.</p>
+          <ul>
+            <li><img src="https://www.figma.com/api/mcp/asset/6c99e6a6-2963-434c-a5b4-2352a192d380" alt="" loading="lazy" decoding="async" /><span><strong>Product Audits</strong>Heuristic evaluation and UX debt identification.</span></li>
+            <li><img src="https://www.figma.com/api/mcp/asset/6c99e6a6-2963-434c-a5b4-2352a192d380" alt="" loading="lazy" decoding="async" /><span><strong>Design Systems</strong>Scalable components for consistent multi-platform development.</span></li>
+            <li><img src="https://www.figma.com/api/mcp/asset/6c99e6a6-2963-434c-a5b4-2352a192d380" alt="" loading="lazy" decoding="async" /><span><strong>Rapid Prototyping</strong>High-fidelity interactive mockups for stakeholder testing.</span></li>
+          </ul>
+        </div>
+        <div class="stats-grid">
+          <article><h3>10+</h3><p>Years Experience</p></article>
+          <article><h3>120+</h3><p>Projects Completed</p></article>
+          <article><h3>15+</h3><p>Awards Won</p></article>
+          <article><h3>100%</h3><p>Client Satisfaction</p></article>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-cta reveal">
+        <h2>Let's work <span>together.</span></h2>
+        <p>Have a project in mind or just want to say hi? My inbox is always open.</p>
+        <div class="contact-actions">
+          <a class="contact-mail" href="mailto:hello@hiraviya.com">hello@hiraviya.com</a>
+          <a class="social" href="#" aria-label="LinkedIn"><img src="https://www.figma.com/api/mcp/asset/aaaa15d4-3765-4a74-959f-501806dfa172" alt="" loading="lazy" decoding="async" /></a>
+          <a class="social" href="#" aria-label="Instagram"><img src="https://www.figma.com/api/mcp/asset/7e20dec4-ee23-4cdf-bc17-83d917f59f24" alt="" loading="lazy" decoding="async" /></a>
+        </div>
+        <div class="contact-meta">
+          <span>© 2024 Hira Viya. All Rights Reserved.</span>
+          <span>Designed with grid-based minimalism</span>
         </div>
       </section>
     </main>
-
-    <footer class="footer">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <div class="footer-logo">
-            <span>
-              <img src="https://www.figma.com/api/mcp/asset/e52a76ea-f540-4c80-b889-c1c8883f6e06" alt="" />
-            </span>
-            <strong>Hira Viya</strong>
-          </div>
-          <p>
-            Digital Designer &amp; Art Director focused on creating meaningful connections between brands and people
-            through design.
-          </p>
-        </div>
-
-        <div class="footer__col">
-          <h4>Socials</h4>
-          <a href="#">LinkedIn</a>
-          <a href="#">Behance</a>
-          <a href="#">Dribbble</a>
-          <a href="#">Instagram</a>
-        </div>
-
-        <div class="footer__col">
-          <h4>Navigation</h4>
-          <a href="#">Home</a>
-          <a href="#">Portfolio</a>
-          <a href="#">Resume</a>
-          <a href="#">Contact</a>
-        </div>
-      </div>
-
-      <div class="footer__bottom">
-        <p>© 2024 Hira Viya Design. All rights reserved.</p>
-        <div>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
-      </div>
-    </footer>
-
     <script src="script.js"></script>
   </body>
 </html>
