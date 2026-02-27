@@ -955,17 +955,38 @@ a {
 
 @media (max-width: 1100px) {
   .topbar {
+    flex-wrap: wrap;
     gap: 10px;
   }
 
   .topbar__actions {
+    width: 100%;
     margin-left: auto;
+    justify-content: flex-end;
     gap: 10px;
     position: relative;
   }
 
+  .topbar__brand {
+    min-width: 0;
+  }
+
   .nav-toggle {
-    display: grid;
+    display: grid !important;
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  .topbar__nav {
+    order: 2;
+  }
+
+  .theme-toggle {
+    order: 3;
+  }
+
+  .btn-hire {
+    order: 4;
   }
 
   .topbar__nav {
@@ -980,9 +1001,10 @@ a {
     background: var(--topbar-bg);
     backdrop-filter: blur(8px);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
     z-index: 30;
+    box-shadow: 0 14px 30px -20px rgba(15, 23, 42, 0.55);
   }
 
   .nav-toggle-checkbox:checked ~ .topbar__nav {
@@ -993,6 +1015,7 @@ a {
     width: 100%;
     padding: 8px 10px;
     border-radius: 8px;
+    text-align: center;
   }
 
   .topbar__nav .nav-link--active {
@@ -1044,17 +1067,59 @@ a {
 }
 
 @media (max-width: 640px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   .brand-name {
-    font-size: 14px;
+    max-width: 170px;
+    font-size: 13px;
     letter-spacing: -0.2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .topbar__actions {
-    gap: 12px;
+    gap: 8px;
   }
 
   .topbar__nav {
     width: min(320px, calc(100vw - 32px));
+  }
+
+  .home-main {
+    gap: 56px;
+    padding-top: 40px;
+    padding-bottom: 88px;
+  }
+
+  .hero {
+    gap: 24px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+    line-height: 1.08;
+  }
+
+  .hero p {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-outline {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 
   .btn-hire {
@@ -1072,14 +1137,37 @@ a {
     font-size: 34px;
   }
 
+  .contact-cta {
+    padding-top: 56px;
+  }
+
+  .contact-cta h2 {
+    font-size: 40px;
+    letter-spacing: -1px;
+  }
+
+  .contact-cta p {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 25px;
+  }
+
   .contact-actions {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
   }
 
   .contact-mail {
     font-size: 16px;
     line-height: 24px;
     padding: 14px 24px;
+    text-align: center;
+  }
+
+  .social {
+    width: 50px;
+    height: 50px;
   }
 
   .footer__top {

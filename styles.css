@@ -684,19 +684,40 @@ a {
   }
 
   .topbar {
+    flex-wrap: wrap;
     gap: 10px;
     padding-left: 24px;
     padding-right: 24px;
   }
 
   .topbar__actions {
+    width: 100%;
     margin-left: auto;
+    justify-content: flex-end;
     gap: 10px;
     position: relative;
   }
 
+  .topbar__brand {
+    min-width: 0;
+  }
+
   .nav-toggle {
-    display: grid;
+    display: grid !important;
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  .topbar__nav {
+    order: 2;
+  }
+
+  .theme-toggle {
+    order: 3;
+  }
+
+  .btn-hire {
+    order: 4;
   }
 
   .topbar__nav {
@@ -711,9 +732,10 @@ a {
     background: var(--topbar-bg);
     backdrop-filter: blur(8px);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
     z-index: 30;
+    box-shadow: 0 14px 30px -20px rgba(15, 23, 42, 0.55);
   }
 
   .nav-toggle-checkbox:checked ~ .topbar__nav {
@@ -724,6 +746,7 @@ a {
     width: 100%;
     padding: 8px 10px;
     border-radius: 8px;
+    text-align: center;
   }
 
   .topbar__nav .nav-link--active {
@@ -768,8 +791,12 @@ a {
 
 @media (max-width: 640px) {
   .brand-name {
-    font-size: 14px;
+    max-width: 170px;
+    font-size: 13px;
     letter-spacing: -0.2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .topbar {
@@ -778,7 +805,7 @@ a {
   }
 
   .topbar__actions {
-    gap: 10px;
+    gap: 8px;
   }
 
   .topbar__nav {
@@ -796,7 +823,8 @@ a {
   }
 
   .main {
-    padding: 28px 16px 88px;
+    padding: 24px 16px 76px;
+    gap: 24px;
   }
 
   .intro h1 {
@@ -807,6 +835,10 @@ a {
   .intro p {
     font-size: 16px;
     line-height: 24px;
+  }
+
+  .filters {
+    gap: 8px;
   }
 
   .tag {
@@ -820,6 +852,10 @@ a {
     line-height: 26px;
   }
 
+  .project {
+    gap: 12px;
+  }
+
   .project p,
   .resume-card p,
   .proof-card p,
@@ -829,13 +865,19 @@ a {
   }
 
   .cta {
-    padding: 28px 18px;
+    padding: 24px 16px;
     border-radius: 18px;
   }
 
   .cta h2 {
-    font-size: 30px;
+    font-size: 28px;
     line-height: 1.1;
+  }
+
+  .cta p {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .btn,
