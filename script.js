@@ -3,7 +3,21 @@ const storageKey = 'site-theme';
 const themeButtons = document.querySelectorAll('.theme-toggle');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-const getStoredTheme = () => localStorage.getItem(storageKey);
+const getStoredTheme = () => {
+  try {
+    return localStorage.getItem(storageKey);
+  } catch (error) {
+    return null;
+  }
+};
+
+const setStoredTheme = (theme) => {
+  try {
+    localStorage.setItem(storageKey, theme);
+  } catch (error) {
+    // Ignore storage failures in restricted environments.
+  }
+};
 
 const applyTheme = (theme) => {
   root.setAttribute('data-theme', theme);
@@ -16,12 +30,25 @@ const applyTheme = (theme) => {
 const initialTheme = getStoredTheme() || (prefersDark.matches ? 'dark' : 'light');
 applyTheme(initialTheme);
 
+const navLinks = document.querySelectorAll('.topbar__nav a');
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    const actions = link.closest('.topbar__actions');
+    const navToggleCheckbox = actions?.querySelector('.nav-toggle-checkbox');
+
+    if (navToggleCheckbox instanceof HTMLInputElement) {
+      navToggleCheckbox.checked = false;
+    }
+  });
+});
+
 themeButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const current = root.getAttribute('data-theme') || 'light';
     const next = current === 'dark' ? 'light' : 'dark';
     applyTheme(next);
-    localStorage.setItem(storageKey, next);
+    setStoredTheme(next);
   });
 });
 

@@ -10,6 +10,11 @@
   --topbar-border: rgba(255, 255, 255, 0.1);
   --nav-link: #ffffff;
   --btn-outline-border: rgba(0, 122, 255, 0.2);
+  --icon-btn-bg: rgba(255, 255, 255, 0.12);
+  --icon-btn-bg-hover: rgba(255, 255, 255, 0.2);
+  --icon-btn-border: rgba(255, 255, 255, 0.24);
+  --icon-btn-focus: rgba(59, 130, 246, 0.55);
+  --icon-btn-icon-filter: invert(1);
 }
 
 html[data-theme='light'] {
@@ -24,6 +29,11 @@ html[data-theme='light'] {
   --topbar-border: #e2e8f0;
   --nav-link: #334155;
   --btn-outline-border: rgba(59, 130, 246, 0.28);
+  --icon-btn-bg: #e2e8f0;
+  --icon-btn-bg-hover: #cbd5e1;
+  --icon-btn-border: #cbd5e1;
+  --icon-btn-focus: rgba(37, 99, 235, 0.4);
+  --icon-btn-icon-filter: invert(18%) sepia(15%) saturate(874%) hue-rotate(177deg) brightness(95%) contrast(90%);
 }
 
 * {
@@ -126,22 +136,74 @@ a {
 .icon-btn {
   width: 40px;
   height: 40px;
-  border: 0;
+  border: 1px solid var(--icon-btn-border);
   border-radius: 12px;
-  background: rgba(148, 163, 184, 0.2);
+  background: var(--icon-btn-bg);
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .icon-btn:hover {
   transform: translateY(-1px);
+  background: var(--icon-btn-bg-hover);
 }
 
 .icon-btn img {
   width: 18.33px;
   height: 18.33px;
+  filter: var(--icon-btn-icon-filter);
+}
+
+.icon-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--icon-btn-focus);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+.nav-toggle span,
+.nav-toggle::before,
+.nav-toggle::after {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle span {
+  margin: 3px 0;
+}
+
+.nav-toggle-checkbox:checked + .nav-toggle span {
+  opacity: 0;
+}
+
+.nav-toggle-checkbox:checked + .nav-toggle::before {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.nav-toggle-checkbox:checked + .nav-toggle::after {
+  transform: translateY(-5px) rotate(-45deg);
 }
 
 .btn-hire {
@@ -463,7 +525,7 @@ a {
 }
 
 .services-intro li strong {
-  color: #fff;
+  color: var(--text);
   font-size: 16px;
   line-height: 24px;
 }
@@ -493,7 +555,7 @@ a {
 
 .stats-grid p {
   margin: 4px 0 0;
-  color: #cbd5e1;
+  color: var(--muted);
   font-size: 12px;
   line-height: 16px;
 }
@@ -891,20 +953,52 @@ a {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
   .topbar {
-    flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
   }
 
   .topbar__actions {
-    width: 100%;
-    justify-content: space-between;
+    margin-left: auto;
+    gap: 10px;
+    position: relative;
+  }
+
+  .nav-toggle {
+    display: grid;
   }
 
   .topbar__nav {
-    gap: 16px;
-    flex-wrap: wrap;
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: min(320px, calc(100vw - 48px));
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--topbar-border);
+    background: var(--topbar-bg);
+    backdrop-filter: blur(8px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    z-index: 30;
+  }
+
+  .nav-toggle-checkbox:checked ~ .topbar__nav {
+    display: flex;
+  }
+
+  .topbar__nav .nav-link {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+
+  .topbar__nav .nav-link--active {
+    border-bottom: 0;
+    background: color-mix(in srgb, var(--brand) 14%, transparent);
+    padding-bottom: 8px;
   }
 
   .home-main {
@@ -959,6 +1053,10 @@ a {
     gap: 12px;
   }
 
+  .topbar__nav {
+    width: min(320px, calc(100vw - 32px));
+  }
+
   .btn-hire {
     padding: 10px 14px;
   }
@@ -982,6 +1080,15 @@ a {
     font-size: 16px;
     line-height: 24px;
     padding: 14px 24px;
+  }
+
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
   }
 }
 

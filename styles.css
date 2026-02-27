@@ -11,6 +11,10 @@
   --tag-text: #334155;
   --card-bg: #f1f5f9;
   --icon-btn-bg: #e2e8f0;
+  --icon-btn-bg-hover: #cbd5e1;
+  --icon-btn-border: #cbd5e1;
+  --icon-btn-focus: rgba(37, 99, 235, 0.4);
+  --icon-btn-icon-filter: invert(18%) sepia(15%) saturate(874%) hue-rotate(177deg) brightness(95%) contrast(90%);
 }
 
 html[data-theme='dark'] {
@@ -25,7 +29,11 @@ html[data-theme='dark'] {
   --tag-bg: rgba(255, 255, 255, 0.08);
   --tag-text: #cbd5e1;
   --card-bg: rgba(255, 255, 255, 0.05);
-  --icon-btn-bg: rgba(148, 163, 184, 0.2);
+  --icon-btn-bg: rgba(255, 255, 255, 0.12);
+  --icon-btn-bg-hover: rgba(255, 255, 255, 0.2);
+  --icon-btn-border: rgba(255, 255, 255, 0.24);
+  --icon-btn-focus: rgba(59, 130, 246, 0.55);
+  --icon-btn-icon-filter: invert(1);
 }
 
 * {
@@ -116,22 +124,74 @@ a {
 .icon-btn {
   width: 40px;
   height: 40px;
-  border: 0;
+  border: 1px solid var(--icon-btn-border);
   border-radius: 12px;
   background: var(--icon-btn-bg);
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .icon-btn:hover {
   transform: translateY(-1px);
+  background: var(--icon-btn-bg-hover);
 }
 
 .icon-btn img {
   width: 18.33px;
   height: 18.33px;
+  filter: var(--icon-btn-icon-filter);
+}
+
+.icon-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--icon-btn-focus);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+.nav-toggle span,
+.nav-toggle::before,
+.nav-toggle::after {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle span {
+  margin: 3px 0;
+}
+
+.nav-toggle-checkbox:checked + .nav-toggle span {
+  opacity: 0;
+}
+
+.nav-toggle-checkbox:checked + .nav-toggle::before {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.nav-toggle-checkbox:checked + .nav-toggle::after {
+  transform: translateY(-5px) rotate(-45deg);
 }
 
 .btn-hire {
@@ -434,8 +494,8 @@ a {
 
 .cta {
   margin-top: 24px;
-  background: color-mix(in srgb, var(--bg) 55%, #0f172a 45%);
-  border: 1px solid color-mix(in srgb, var(--line) 60%, #1e293b 40%);
+  background: #0f172a;
+  border: 1px solid #1e293b;
   border-radius: 24px;
   padding: 65px;
   text-align: center;
@@ -453,7 +513,7 @@ a {
 .cta p {
   margin: 24px auto 0;
   max-width: 672px;
-  color: #94a3b8;
+  color: #cbd5e1;
   font-size: 18px;
   line-height: 28px;
 }
@@ -610,7 +670,7 @@ a {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .projects,
   .resume-grid,
   .footer__top {
@@ -624,33 +684,52 @@ a {
   }
 
   .topbar {
-    flex-wrap: wrap;
-    gap: 16px;
+    gap: 10px;
     padding-left: 24px;
     padding-right: 24px;
   }
 
   .topbar__actions {
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 12px;
+    margin-left: auto;
+    gap: 10px;
+    position: relative;
+  }
+
+  .nav-toggle {
+    display: grid;
   }
 
   .topbar__nav {
-    order: 1;
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: min(320px, calc(100vw - 48px));
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--topbar-border);
+    background: var(--topbar-bg);
+    backdrop-filter: blur(8px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    z-index: 30;
+  }
+
+  .nav-toggle-checkbox:checked ~ .topbar__nav {
+    display: flex;
+  }
+
+  .topbar__nav .nav-link {
     width: 100%;
-    gap: 16px;
-    flex-wrap: wrap;
+    padding: 8px 10px;
+    border-radius: 8px;
   }
 
-  .topbar__actions .icon-btn {
-    order: 2;
-  }
-
-  .topbar__actions .btn-hire {
-    order: 3;
-    margin-left: auto;
+  .topbar__nav .nav-link--active {
+    border-bottom: 0;
+    background: color-mix(in srgb, var(--brand) 14%, transparent);
+    padding-bottom: 8px;
   }
 
   .btn-hire {
@@ -703,7 +782,7 @@ a {
   }
 
   .topbar__nav {
-    gap: 12px;
+    width: min(320px, calc(100vw - 32px));
   }
 
   .nav-link {
@@ -774,5 +853,14 @@ a {
 
   .cta__buttons {
     flex-wrap: wrap;
+  }
+
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
   }
 }
