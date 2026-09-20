@@ -1,0 +1,294 @@
+/* Shared glassmorphism styles for individual project case-study pages. */
+
+.case-study {
+  position: relative;
+  isolation: isolate;
+}
+
+.case-study::before,
+.case-study::after {
+  content: '';
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 999px;
+  filter: blur(95px);
+  z-index: -1;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.case-study::before {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.55), transparent 70%);
+  top: -140px;
+  left: -120px;
+}
+
+.case-study::after {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.45), transparent 70%);
+  bottom: 15%;
+  right: -140px;
+}
+
+.glass-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.18));
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px -8px rgba(15, 23, 42, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+html[data-theme='dark'] .glass-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.case-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--brand);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.case-back svg {
+  transition: transform 0.2s ease;
+}
+
+.case-back:hover svg {
+  transform: translateX(-3px);
+}
+
+.case-hero {
+  padding: 28px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-hero .pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.case-hero h1 {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  font-weight: 900;
+}
+
+.case-hero p {
+  margin: 0;
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 27px;
+}
+
+.case-facts {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.case-fact {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  border: 1px solid var(--line);
+}
+
+.case-fact span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.case-fact strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+}
+
+.case-screens {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.case-screens figure {
+  margin: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.case-screens img {
+  width: 100%;
+  height: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+.case-screens figcaption {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.case-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.case-section > h2 {
+  margin: 0;
+}
+
+.case-section > p {
+  margin: -14px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 26px;
+  max-width: 760px;
+}
+
+.case-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.case-tech-card {
+  padding: 18px 20px;
+}
+
+.case-tech-card span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.case-tech-card strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.case-tech-card p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.case-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.case-feature-card {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.case-feature-card h3 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.case-feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.case-architecture ul {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.case-architecture code {
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.case-cta {
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.case-cta h2 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.case-cta p {
+  margin: 0;
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.case-cta .cta__buttons {
+  margin-top: 4px;
+  padding-top: 0;
+}
+
+@media (max-width: 900px) {
+  .case-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .case-screens {
+    grid-template-columns: 1fr;
+  }
+
+  .case-tech-grid,
+  .case-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-hero h1 {
+    font-size: 32px;
+  }
+}

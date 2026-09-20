@@ -117,8 +117,9 @@ No installation or build step is needed.
 - **Contact CTA** — Direct email link and social media icons
 
 ### Works (`Pages/works.html`)
-- Filterable project grid with category tags: Healthcare, Media, AI Automation, IT Operations
+- Filterable project grid with category tags: SaaS Solution, Healthcare, Media, AI Automation, IT Operations
 - Selected case studies: Clinical Workflow Assistant, Newsroom Operations Console, Document Processing Automation, Infrastructure Monitoring Toolkit
+- Flagship project with its own glassmorphism case-study page: [Bee Novelty — Vending Machine SaaS](Pages/Bee-Novelty/index.html) (`Pages/Bee-Novelty/index.html`), a multi-tenant vending fleet management platform
 
 ### Resume (`Pages/resume.html`)
 - Professional summary, experience at LABAID Cancer Hospital and Somoy TV, core skills, and contact links

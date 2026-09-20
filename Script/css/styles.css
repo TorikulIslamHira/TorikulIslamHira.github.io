@@ -280,6 +280,19 @@ a {
   display: none;
 }
 
+.project--linked {
+  border-radius: 16px;
+  padding: 12px;
+  margin: -12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.project--linked:hover {
+  transform: translateY(-4px);
+  background: color-mix(in srgb, var(--bg) 88%, #3b82f6 12%);
+  box-shadow: 0 16px 32px -18px rgba(59, 130, 246, 0.45);
+}
+
 .project__image-wrap {
   aspect-ratio: 16 / 10;
   border-radius: 16px;
