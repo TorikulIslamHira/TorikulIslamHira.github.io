@@ -23,8 +23,8 @@ The site showcases professional background, selected works, and service offering
 | Page | File | Description |
 |------|------|-------------|
 | Home | `index.html` | Hero, skills, services, process, and contact sections |
-| Works | `works.html` | Filterable portfolio of selected project case studies |
-| Resume | `resume.html` | Professional summary, experience, and core skills |
+| Works | `Pages/works.html` | Filterable portfolio of selected project case studies |
+| Resume | `Pages/resume.html` | Professional summary, experience, and core skills |
 
 ---
 
@@ -44,8 +44,9 @@ The site showcases professional background, selected works, and service offering
 | Technology | Role |
 |------------|------|
 | HTML5 | Page structure and semantic markup |
-| CSS3 | Styling (`home.css`, `styles.css`) |
-| Vanilla JavaScript | Theme toggle, scroll reveal, portfolio filter (`script.js`) |
+| CSS3 | Styling (`Script/css/home.css`, `Script/css/styles.css`) |
+| Vanilla JavaScript | Theme toggle, scroll reveal, portfolio filter (`Script/js/script.js`) |
+| Bootstrap 5.3.3 (CDN) | Base utilities loaded alongside custom CSS |
 | Google Fonts — Public Sans | Typography |
 
 No frameworks or build tools required — this is a pure static site.
@@ -56,13 +57,17 @@ No frameworks or build tools required — this is a pure static site.
 
 ```
 TorikulIslamHira.github.io/
-├── index.html        # Home page
-├── works.html        # Portfolio / Works page
-├── resume.html       # Resume page
-├── home.css          # Styles specific to the Home page
-├── styles.css        # Shared styles for Works and Resume pages
-├── script.js         # Theme toggle, animations, and filter logic
-└── assets/           # Images, icons, and favicon
+├── index.html            # Home page (kept at root for GitHub Pages)
+├── Pages/
+│   ├── works.html        # Portfolio / Works page
+│   └── resume.html       # Resume page
+├── Script/
+│   ├── css/
+│   │   ├── home.css      # Styles specific to the Home page
+│   │   └── styles.css    # Shared styles for Works and Resume pages
+│   └── js/
+│       └── script.js     # Theme toggle, animations, and filter logic
+└── assets/               # Images, icons, and favicon
     ├── favicon.png
     ├── Myphoto.jpg
     ├── icon-theme.svg
@@ -111,11 +116,11 @@ No installation or build step is needed.
 - **Testimonials** — Stakeholder and client feedback
 - **Contact CTA** — Direct email link and social media icons
 
-### Works (`works.html`)
+### Works (`Pages/works.html`)
 - Filterable project grid with category tags: Healthcare, Media, AI Automation, IT Operations
 - Selected case studies: Clinical Workflow Assistant, Newsroom Operations Console, Document Processing Automation, Infrastructure Monitoring Toolkit
 
-### Resume (`resume.html`)
+### Resume (`Pages/resume.html`)
 - Professional summary, experience at LABAID Cancer Hospital and Somoy TV, core skills, and contact links
 
 ---
