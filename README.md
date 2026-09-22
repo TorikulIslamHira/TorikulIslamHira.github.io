@@ -122,7 +122,9 @@ No installation or build step is needed.
 - Flagship project with its own glassmorphism case-study page: [Bee Novelty — Vending Machine SaaS](Pages/Bee-Novelty/index.html) (`Pages/Bee-Novelty/index.html`), a multi-tenant vending fleet management platform
 
 ### Resume (`Pages/resume.html`)
-- Professional summary, experience at LABAID Cancer Hospital and Somoy TV, core skills, and contact links
+- Professional summary, tabbed technical skills (Networking, Server & Cloud, DevOps & Automation, OS & Hardware), an expandable experience timeline (Somoy Media, LABAID Cancer Hospital, IT Bangla), certifications, and education
+- Interactive controls: Download CV (PDF), Print Resume, Copy Email, and per-role "View Details" toggles
+- Downloadable resume PDF lives at `assets/MD-Torikul-Islam-Hira-Resume.pdf` — a public-safe version with no date of birth, ID numbers, or marital/personal status
 
 ---
 
