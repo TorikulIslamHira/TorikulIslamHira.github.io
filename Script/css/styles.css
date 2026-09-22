@@ -44,6 +44,14 @@ html[data-theme='dark'] {
 
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
 
 body {
@@ -122,7 +130,8 @@ a {
   line-height: 20px;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link:active {
   color: var(--brand);
 }
 
@@ -133,8 +142,8 @@ a {
 }
 
 .icon-btn {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border: 2px solid var(--icon-btn-border);
   border-radius: 0;
   background: var(--icon-btn-bg);
@@ -144,7 +153,8 @@ a {
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.icon-btn:hover {
+.icon-btn:hover,
+.icon-btn:active {
   background: var(--icon-btn-bg-hover);
 }
 
@@ -211,7 +221,8 @@ a {
   background: var(--brand);
   border: 2px solid var(--brand);
   border-radius: 0;
-  padding: 10px 18px;
+  padding: 12px 18px;
+  min-height: 44px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -221,7 +232,8 @@ a {
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.btn-hire:hover {
+.btn-hire:hover,
+.btn-hire:active {
   background: var(--brand-hover);
   border-color: var(--brand-hover);
 }
@@ -277,7 +289,7 @@ html[data-theme='dark'] .btn-hire img {
   border: 2px solid var(--border-strong);
   background: var(--bg);
   color: var(--tag-text);
-  height: 38px;
+  height: 40px;
   padding: 0 20px;
   border-radius: 0;
   font-size: 12px;
@@ -321,7 +333,8 @@ html[data-theme='dark'] .btn-hire img {
   transition: background-color 0.2s ease;
 }
 
-.project--linked:hover {
+.project--linked:hover,
+.project--linked:active {
   background: color-mix(in srgb, var(--brand) 6%, var(--bg));
 }
 
@@ -542,7 +555,8 @@ html[data-theme='dark'] .btn-hire img {
   border-color: var(--brand);
 }
 
-.btn--primary:hover {
+.btn--primary:hover,
+.btn--primary:active {
   background: var(--brand-hover);
   border-color: var(--brand-hover);
 }
@@ -564,7 +578,8 @@ html[data-theme='dark'] .btn--primary img {
   border-color: var(--border-strong);
 }
 
-.btn--ghost:hover {
+.btn--ghost:hover,
+.btn--ghost:active {
   background: color-mix(in srgb, var(--text) 8%, transparent);
 }
 
@@ -575,7 +590,8 @@ html[data-theme='dark'] .btn--primary img {
   border-color: color-mix(in srgb, var(--bg) 40%, transparent);
 }
 
-.cta .btn--ghost:hover {
+.cta .btn--ghost:hover,
+.cta .btn--ghost:active {
   background: color-mix(in srgb, var(--bg) 10%, transparent);
 }
 
@@ -651,7 +667,22 @@ html[data-theme='dark'] .btn--primary img {
   line-height: 20px;
 }
 
-.footer__col a:hover {
+.footer__col a {
+  display: inline-block;
+  padding: 6px 0;
+  margin: -6px 0;
+}
+
+.footer__bottom a {
+  display: inline-block;
+  padding: 10px 0;
+  margin: -10px 0;
+}
+
+.footer__col a:hover,
+.footer__col a:active,
+.footer__bottom a:hover,
+.footer__bottom a:active {
   color: var(--brand);
 }
 
@@ -769,14 +800,14 @@ html[data-theme='dark'] .btn--primary img {
 
   .topbar__nav .nav-link {
     width: 100%;
-    padding: 8px 10px;
+    padding: 12px 10px;
     text-align: center;
   }
 
   .topbar__nav .nav-link--active {
     border-bottom: 0;
     background: color-mix(in srgb, var(--brand) 12%, transparent);
-    padding-bottom: 8px;
+    padding-bottom: 12px;
   }
 
   .btn-hire {
@@ -886,7 +917,7 @@ html[data-theme='dark'] .btn--primary img {
   }
 
   .tag {
-    height: 34px;
+    height: 40px;
     padding: 0 12px;
     font-size: 11px;
   }

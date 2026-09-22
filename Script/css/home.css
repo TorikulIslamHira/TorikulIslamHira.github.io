@@ -44,6 +44,14 @@ html[data-theme='dark'] {
 
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
 
 html,
@@ -134,7 +142,8 @@ a {
   text-transform: uppercase;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link:active {
   color: var(--brand);
 }
 
@@ -145,8 +154,8 @@ a {
 }
 
 .icon-btn {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border: 2px solid var(--icon-btn-border);
   border-radius: 0;
   background: var(--icon-btn-bg);
@@ -156,7 +165,8 @@ a {
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.icon-btn:hover {
+.icon-btn:hover,
+.icon-btn:active {
   background: var(--icon-btn-bg-hover);
 }
 
@@ -223,7 +233,8 @@ a {
   background: var(--brand);
   border: 2px solid var(--brand);
   border-radius: 0;
-  padding: 10px 18px;
+  padding: 12px 18px;
+  min-height: 44px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -233,7 +244,8 @@ a {
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.btn-hire:hover {
+.btn-hire:hover,
+.btn-hire:active {
   background: var(--brand-hover);
   border-color: var(--brand-hover);
 }
@@ -462,7 +474,8 @@ html[data-theme='dark'] .btn-hire img {
   color: var(--bg);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:active {
   background: var(--brand-hover);
   border-color: var(--brand-hover);
 }
@@ -472,8 +485,17 @@ html[data-theme='dark'] .btn-hire img {
   color: var(--text);
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-outline:active {
   background: color-mix(in srgb, var(--text) 8%, transparent);
+}
+
+/* Scroll targets for in-page nav links (#summary, #services, #contact) need
+   room for the sticky topbar (~81px), or the heading lands hidden under it. */
+#summary,
+#services,
+#contact {
+  scroll-margin-top: 110px;
 }
 
 .story {
@@ -762,7 +784,7 @@ html[data-theme='dark'] .services-intro li img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  height: 42px;
+  height: 44px;
   border: 2px solid var(--brand);
   border-radius: 0;
   background: var(--brand);
@@ -775,7 +797,8 @@ html[data-theme='dark'] .services-intro li img {
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.process-btn:hover {
+.process-btn:hover,
+.process-btn:active {
   background: var(--brand-hover);
   border-color: var(--brand-hover);
 }
@@ -815,7 +838,8 @@ html[data-theme='dark'] .process-btn img {
   border-bottom: 0;
 }
 
-.process-card:hover {
+.process-card:hover,
+.process-card:active {
   background: color-mix(in srgb, var(--brand) 6%, transparent);
 }
 
@@ -834,7 +858,8 @@ html[data-theme='dark'] .process-btn img {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.process-card:hover .process-icon {
+.process-card:hover .process-icon,
+.process-card:active .process-icon {
   background: var(--brand);
   border-color: var(--brand);
   color: var(--bg);
@@ -947,7 +972,8 @@ html[data-theme='dark'] .process-btn img {
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.contact-mail:hover {
+.contact-mail:hover,
+.contact-mail:active {
   background: var(--brand-hover);
   border-color: var(--brand-hover);
 }
@@ -962,7 +988,8 @@ html[data-theme='dark'] .process-btn img {
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.social:hover {
+.social:hover,
+.social:active {
   border-color: var(--brand);
   background: color-mix(in srgb, var(--brand) 8%, transparent);
 }
@@ -1067,7 +1094,22 @@ html[data-theme='dark'] .social img {
   line-height: 20px;
 }
 
-.footer__col a:hover {
+.footer__col a {
+  display: inline-block;
+  padding: 6px 0;
+  margin: -6px 0;
+}
+
+.footer__bottom a {
+  display: inline-block;
+  padding: 10px 0;
+  margin: -10px 0;
+}
+
+.footer__col a:hover,
+.footer__col a:active,
+.footer__bottom a:hover,
+.footer__bottom a:active {
   color: var(--brand);
 }
 
@@ -1215,14 +1257,14 @@ html[data-theme='dark'] .social img {
 
   .topbar__nav .nav-link {
     width: 100%;
-    padding: 8px 10px;
+    padding: 12px 10px;
     text-align: center;
   }
 
   .topbar__nav .nav-link--active {
     border-bottom: 0;
     background: color-mix(in srgb, var(--brand) 12%, transparent);
-    padding-bottom: 8px;
+    padding-bottom: 12px;
   }
 
   .home-main {
