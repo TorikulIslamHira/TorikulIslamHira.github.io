@@ -1120,6 +1120,12 @@ html[data-theme='dark'] .social img {
     border-bottom: 2px solid var(--border-strong);
   }
 
+  .hero-photo {
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
   .footer {
     padding-left: 24px;
     padding-right: 24px;
