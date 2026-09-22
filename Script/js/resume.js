@@ -55,8 +55,56 @@ copyButtons.forEach((button) => {
   });
 });
 
-const printButtons = document.querySelectorAll('.print-resume-btn');
+const previewButtons = document.querySelectorAll('.preview-cv-btn');
+const previewOverlay = document.getElementById('resume-preview-overlay');
+const previewFrame = document.getElementById('resume-preview-frame');
+const previewClose = document.querySelector('.resume-preview-close');
+const PREVIEW_PDF_URL = '../assets/MD-Torikul-Islam-Hira-Resume.pdf';
 
-printButtons.forEach((button) => {
-  button.addEventListener('click', () => window.print());
+let lastFocusedElement = null;
+
+const openPreview = (trigger) => {
+  if (!previewOverlay || !previewFrame) {
+    return;
+  }
+
+  if (!previewFrame.src) {
+    previewFrame.src = PREVIEW_PDF_URL;
+  }
+
+  lastFocusedElement = trigger || document.activeElement;
+  previewOverlay.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+  previewClose?.focus();
+};
+
+const closePreview = () => {
+  if (!previewOverlay) {
+    return;
+  }
+
+  previewOverlay.classList.remove('is-open');
+  document.body.style.overflow = '';
+
+  if (lastFocusedElement instanceof HTMLElement) {
+    lastFocusedElement.focus();
+  }
+};
+
+previewButtons.forEach((button) => {
+  button.addEventListener('click', () => openPreview(button));
+});
+
+previewClose?.addEventListener('click', closePreview);
+
+previewOverlay?.addEventListener('click', (event) => {
+  if (event.target === previewOverlay) {
+    closePreview();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && previewOverlay?.classList.contains('is-open')) {
+    closePreview();
+  }
 });
